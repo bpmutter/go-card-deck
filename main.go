@@ -1,12 +1,19 @@
 package main
+import (
+	"fmt"
+)
 
 func main() {
-	cards := deck{newCard(), newCard()}
-	cards = append(cards, "Six of Spades")
+	cards := newDeck()
 
-	cards.print()
+	// hand, remaining := deal(cards, 5)
+	// hand.print()
+	// remaining.print()
+	cards.saveToFile("my_cards.txt")
+	deck := newDeckFromFile("my__cards.txt")
+
+		fmt.Println(deck.stringify())
+		fmt.Println("success!")
+
 }
 
-func newCard() string {
-	return "Five of Diamonds"
-}
